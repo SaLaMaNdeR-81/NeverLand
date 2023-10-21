@@ -11,6 +11,7 @@
 /Server/node_modules
 npm-debug.log
 yarn-error.log
+GithubPush.bat
 
 # IDEs and editors
 .idea/
