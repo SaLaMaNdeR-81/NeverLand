@@ -1,0 +1,11 @@
+<div class="Box-Auth" *ngIf="!Check_Token">
+
+    <div class="Form-Box">
+
+        <div *ngIf="LoadedFeature === 'Login' "  > <Auth-Login (AuthPageSelected)="onChange($event)" /> </div>
+        <div *ngIf="LoadedFeature === 'Register' " > <Auth-Register (AuthPageSelected)="onChange($event)" /> </div>
+        <div *ngIf="LoadedFeature === 'AutherWay' " > <Auth-AutherWay (AuthPageSelected)="onChange($event)" /> </div>
+
+    </div>
+    
+</div>

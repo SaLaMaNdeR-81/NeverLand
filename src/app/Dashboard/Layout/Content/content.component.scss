@@ -1,0 +1,48 @@
+// ======================================================
+
+@keyframes Neon-Shadow {
+  0%,
+  100% {
+    text-shadow: 0 0 8px #f39422;
+  }
+  50% {
+    text-shadow: -2px 2px 10px #00ffcccc, 2px -2px 10px #ff0066cc;
+  }
+}
+
+// ======================================================
+
+.Content-Box {
+  position: fixed;
+  z-index: 0;
+
+  top: 60px;
+  bottom: 0;
+  right: 0;
+  left: 300px;
+
+  padding: 10px;
+
+  // background: #eab3a0b9;
+  background: #334756;
+  backdrop-filter: blur(8px);
+
+  // transition: 1000ms;
+
+  // box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.4);
+  // border: 1px solid red;
+}
+
+.Content-Box-FullSize {
+  left: 0;
+}
+
+// ======================================================
+
+@media (max-width: 800px) {
+  .Content-Box {
+    left: 0;
+  }
+}
+
+// ======================================================

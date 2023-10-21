@@ -30,9 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/Css/Font.Style.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/Js/particles-app.js",
+              "src/assets/Js/particles.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -100,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

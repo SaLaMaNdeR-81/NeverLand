@@ -1,0 +1,15 @@
+<form class="Box-Form" (ngSubmit)="onFormSubmit()" >
+
+    <label class="Auth-Change-feature" (click)="onSelect('Register')"> Register</label>
+
+    <div class="Auth-Title"> Login </div>
+    <input class="Auth-Input" type="text"     [(ngModel)]="Username" name="username" placeholder="Username" minlength="3" maxlength="16">
+    <input class="Auth-Input" type="password" [(ngModel)]="Password" name="password" placeholder="Password" minlength="3" maxlength="16">
+    
+    <label class="Auth-label" > <input type="checkbox"> Remember Me </label>
+    <label class="Auth-label" > Forgot Password ? </label>
+    <label class="Auth-label" (click)="onSelect('AutherWay') " > Login With Auther Way </label>
+
+    <button class="Auth-Submit-btn" type="submit"> Submit </button>
+
+</form>

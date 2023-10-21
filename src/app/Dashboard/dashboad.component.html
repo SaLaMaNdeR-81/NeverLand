@@ -1,0 +1,7 @@
+<div class="Box-Dashboard" *ngIf="Token">
+
+    <Dashboard-Header (Sidebar_Toggle)="onSidebar_Toggle_Change()" />
+    <Dashboard-Sidebar *ngIf="Sidebar_Stat" />
+    <Dashboard-Content [Sidebar_Stat]="Sidebar_Stat"/>
+
+</div>

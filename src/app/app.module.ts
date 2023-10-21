@@ -1,18 +1,74 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { App_Dashboad } from './Dashboard/dashboad.component';
+
+import { Page_Auth } from './Page/Auth/Auth.Page';
+import { Auth_AutherWay } from './Page/Auth/AutherWay/AutherWay.component';
+import { Auth_Register } from './Page/Auth/Register/register.component';
+import { Auth_Login } from './Page/Auth/Login/login.component';
+
+import { Dashboard_Header } from './Dashboard/Layout/Header/header.component';
+import { Dashboard_Sidebar } from './Dashboard/Layout/Sidebar/sidebar.component';
+import { Dashboard_Content } from './Dashboard/Layout/Content/content.component';
+
+import { Dashboard_SidebarTitle } from './Dashboard/Component/SidebarTitle/SidebarTitle.component';
+import { Dashboard_SidebarMenu } from './Dashboard/Component/SidebarMenu/SidebarMenu.component';
+import { Dashboard_SidebarItem } from './Dashboard/Component/SidebarItem/SidebarItem.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    App_Dashboad,
+    
+    Dashboard_Header,
+    Dashboard_Sidebar,
+    Dashboard_Content,
+    
+    Dashboard_SidebarTitle,
+    Dashboard_SidebarMenu,
+    Dashboard_SidebarItem,
+
+
+    Page_Auth,
+    Auth_AutherWay,
+    Auth_Register,
+    Auth_Login,
+
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '789731172590-ua2iee3ofvbp3t93q71adsnu1mfc4rco.apps.googleusercontent.com'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

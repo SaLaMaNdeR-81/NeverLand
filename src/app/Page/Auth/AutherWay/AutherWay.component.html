@@ -1,0 +1,29 @@
+<form class="Box-Form">
+
+    <label class="Auth-Change-feature" (click)="onSelect('Login')"> <ion-icon name="arrow-back-outline"></ion-icon> Back </label>
+
+    <br>
+
+    <div class="Auth-Title"> AutherWay </div>
+
+    <!-- ================= -->
+    
+    <!-- =====Google====== -->
+    <asl-google-signin-button  class="AutherWay-Box" (click)="onSignWith_Google()" >
+        
+        <img class="AutherWay-Icon" src="../../../../assets/Images/Logo.Google.png">
+        <div class="AutherWay-Title"> Google </div>
+
+    </asl-google-signin-button>
+    
+    <!-- =====GitHub====== -->
+    <asl-google-signin-button  class="AutherWay-Box" (click)="onSignWith_GitHub()" >
+        
+        <img class="AutherWay-Icon" src="../../../../assets/Images/Logo.GitHub.png">
+        <div class="AutherWay-Title"> GitHub </div>
+
+    </asl-google-signin-button>
+
+    <asl-google-signin-button class="AutherWay-Box" > test </asl-google-signin-button>
+
+</form>

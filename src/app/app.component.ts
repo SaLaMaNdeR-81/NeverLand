@@ -6,5 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'User-Dashboard';
+  title : string = 'User-Dashboard';
+
+  theme : any ;
+
+  constructor(){
+
+    this.Set_theme()
+
+  }
+
+  // =======================
+
+  Set_theme(){
+    this.theme = localStorage.getItem('theme');
+
+    if(!this.theme){
+      localStorage.setItem('theme',"default")
+    }
+  }
+
 }

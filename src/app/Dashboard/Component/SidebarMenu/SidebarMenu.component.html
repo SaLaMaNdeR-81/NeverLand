@@ -1,0 +1,19 @@
+<div class="SidebarMenu-Box">
+
+    <div class="SidebarMenu-Menu" (click)="onSidebarMenu_Toggle()" >
+        
+        <div class="SidebarMenu-Icon"> <ion-icon name={{Icon}} ></ion-icon> </div>
+        <div class="SidebarMenu-Title"> {{Title}} </div>
+        <div class="SidebarMenu-Dropdown" [ngClass]=" SidebarMenu_Toggle ? 'SidebarMenu-Dropdown-Active' : '' " > <ion-icon name="chevron-forward-outline"></ion-icon> </div>
+
+    </div>
+
+
+
+    <div class="SidebarMenu-SubMenu" *ngIf=" SidebarMenu_Toggle " >
+        
+        <ng-content></ng-content>
+
+    </div>
+
+</div>
