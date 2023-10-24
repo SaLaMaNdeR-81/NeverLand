@@ -33,11 +33,13 @@
   // border: 1px solid red;
 }
 
-.Content-Box-FullSize {
-  left: 0;
-}
-
 // ======================================================
+
+@media (max-width: 1300px) {
+  .Content-Box {
+    left: 280px;
+  }
+}
 
 @media (max-width: 800px) {
   .Content-Box {
@@ -46,3 +48,7 @@
 }
 
 // ======================================================
+
+.Content-Box-FullSize {
+  left: 0;
+}

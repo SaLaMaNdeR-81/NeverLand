@@ -3,6 +3,7 @@ const app = express()
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -48,15 +49,7 @@ app.get('/test', (req, res) => {
 
 })
 
-app.use('/auth/login-test', async (req, res) => {
-
-    const parsedData = JSON.parse(JSON.stringify(req.body));
-
-    console.log(parsedData);
-    res.send(parsedData)
-    // res.redirect(`${Config.ClientAddress}/dashboard`)
-
-})
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // =====================
 

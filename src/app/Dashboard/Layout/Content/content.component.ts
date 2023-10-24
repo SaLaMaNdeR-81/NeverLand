@@ -8,6 +8,7 @@ import { Component , Input } from '@angular/core';
 export class Dashboard_Content {
 
   @Input() Sidebar_Stat : boolean = true ;
+  @Input() SelectedPage : string = "";
   // @Input() bankName!: string;
 
 }

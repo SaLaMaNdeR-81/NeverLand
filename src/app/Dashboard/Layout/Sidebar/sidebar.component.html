@@ -9,7 +9,7 @@
             
             <div class="Footer-Icon"> <ion-icon name="notifications-outline"></ion-icon> </div>
             <div class="Footer-Icon"> <ion-icon name="settings-outline"></ion-icon> </div>
-            <div class="Footer-Icon"> <ion-icon name="log-in-outline"></ion-icon> </div>
+            <div class="Footer-Icon" title="LogOut" (click)="onLogOut()" > <ion-icon name="log-in-outline"></ion-icon> </div>
             
         </div>            
         
@@ -21,24 +21,18 @@
         
         <Dashboard-SidebarTitle Title="Dashboard"/>
 
-        <Dashboard-SidebarItem Title="Profile" Icon="person-outline" />
+        <Dashboard-SidebarItem Title="Dashboard" Icon="qr-code-outline" (click)="onSelect('Dashboard')" />
+        <Dashboard-SidebarItem Title="Profile" Icon="person-outline" (click)="onSelect('Profile')" />
+        <Dashboard-SidebarItem Title="Orders" Icon="bag-handle-outline" (click)="onSelect('Orders')" />
+        <Dashboard-SidebarItem Title="Address" Icon="map-outline" (click)="onSelect('Address')" />
 
-        <Dashboard-SidebarMenu Title="Shop" Icon="bag-handle-outline" >
+        <!-- <Dashboard-SidebarMenu Title="Shop" Icon="bag-handle-outline" >
             
             <Dashboard-SidebarItem Title="Rank" Icon="pricetag-outline" />
-            <Dashboard-SidebarItem Title="Survival" Icon="earth-outline" />
-            <Dashboard-SidebarItem Title="Hard Survival" Icon="barbell-outline" />
-            <Dashboard-SidebarItem Title="SkyBlock" Icon="thunderstorm-outline" />
-            <Dashboard-SidebarItem Title="BedWars" Icon="bed-outline" />
             
-        </Dashboard-SidebarMenu>
+        </Dashboard-SidebarMenu> -->
 
-        <Dashboard-SidebarItem Title="Support" Icon="headset-outline" />
-        <Dashboard-SidebarItem Title="History" Icon="hardware-chip-outline" />
-        <Dashboard-SidebarItem Title="Wallet" Icon="wallet-outline" />
-        <Dashboard-SidebarItem Title="Latary" Icon="pie-chart-outline" />
-
-
+        <Dashboard-SidebarItem Title="Support" Icon="headset-outline" (click)="onSelect('Support')" />
         
         <!-- =============================== -->
         

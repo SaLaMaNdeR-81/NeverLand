@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,EventEmitter, Output } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -8,6 +8,22 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 })
 export class Dashboard_Sidebar {
-  
+
+  @Output() DashboardPageSelected = new EventEmitter<string>();
+
+  constructor(){
+
+  }
+
+  onSelect(feature : string){
+    this.DashboardPageSelected.emit(feature);
+  }
+
+  onLogOut(){
+
+    localStorage.removeItem("Token")
+    document.location.reload()
+
+  }
 
 }

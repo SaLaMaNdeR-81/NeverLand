@@ -1,5 +1,9 @@
 <div class="Content-Box" [ngClass]=" Sidebar_Stat ? '' : 'Content-Box-FullSize' " >
-
-    {{Sidebar_Stat}}
+    
+    <DashboardPage-Dashboard *ngIf=" SelectedPage === 'Dashboard' " />
+    <DashboardPage-Profile   *ngIf=" SelectedPage === 'Profile' "   />
+    <DashboardPage-Orders    *ngIf=" SelectedPage === 'Orders' "    />
+    <DashboardPage-Address   *ngIf=" SelectedPage === 'Address' "   />
+    <DashboardPage-Support   *ngIf=" SelectedPage === 'Support' "   />
 
 </div>

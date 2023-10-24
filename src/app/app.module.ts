@@ -22,6 +22,12 @@ import { Dashboard_SidebarTitle } from './Dashboard/Component/SidebarTitle/Sideb
 import { Dashboard_SidebarMenu } from './Dashboard/Component/SidebarMenu/SidebarMenu.component';
 import { Dashboard_SidebarItem } from './Dashboard/Component/SidebarItem/SidebarItem.component';
 
+import { DashboardPage_Dashboard } from './Dashboard/Page/Dashboard/Dashboard.Page';
+import { DashboardPage_Profile } from './Dashboard/Page/Profile/Profile.Page';
+import { DashboardPage_Orders } from './Dashboard/Page/Orders/Orders.Page';
+import { DashboardPage_Address } from './Dashboard/Page/Address/Address.Page';
+import { DashboardPage_Support } from './Dashboard/Page/Support/Support.Page';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +40,12 @@ import { Dashboard_SidebarItem } from './Dashboard/Component/SidebarItem/Sidebar
     Dashboard_SidebarTitle,
     Dashboard_SidebarMenu,
     Dashboard_SidebarItem,
-
+    
+    DashboardPage_Dashboard,
+    DashboardPage_Profile,
+    DashboardPage_Orders,
+    DashboardPage_Address,
+    DashboardPage_Support,
 
     Page_Auth,
     Auth_AutherWay,
