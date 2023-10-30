@@ -1,0 +1,12 @@
+{
+  "ServerPort": %port% ,
+  "ClientAddress": " http://%ClientAddress% " ,
+  "SECRET_KEY": " %SECRET_KEY% ",
+  "SQL": {
+    "Host": " %Address% " ,
+    "Port": %port% ,
+    "User": " %User% ",
+    "Password": " %Password% ",
+    "Database": " %Database_Name% "
+  }
+}

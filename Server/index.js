@@ -6,6 +6,7 @@ const cors = require('cors');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const fs = require('fs')
 
 const Config = require('./Config.json')
 const Colors = require("./Module/Colors")
@@ -39,10 +40,20 @@ app.get('/test', (req, res) => {
 
     const data = {
         Username: "momahi",
+        timestamp: new Date(),
         Rank: "Owner",
         Token: tokenModule.CreateNewToken("momahi", "Owner", null),
         Results: tokenModule.CheckToken(tokenModule.CreateNewToken("momahi", "Owner", null))
     }
+
+    // Convert loginData object to a string
+    const logString = JSON.stringify(data);
+
+    // Write logString to a text file
+    fs.appendFile('login.json', logString, (err) => {
+        if (err) throw err;
+        console.log('Login information has been appended to login.log');
+    });
 
     res.set('Content-Type', 'application/json');
     res.status(200).send(JSON.stringify(data, null, 2));

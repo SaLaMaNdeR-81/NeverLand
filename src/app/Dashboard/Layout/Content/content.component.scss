@@ -14,6 +14,8 @@
 
 .Content-Box {
   position: fixed;
+  overflow: hidden;
+  overflow-y: auto;
   z-index: 0;
 
   top: 60px;
