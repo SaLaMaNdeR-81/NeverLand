@@ -1,4 +1,5 @@
 import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
@@ -27,6 +28,8 @@ import { DashboardPage_Profile } from './Dashboard/Page/Profile/Profile.Page';
 import { DashboardPage_Orders } from './Dashboard/Page/Orders/Orders.Page';
 import { DashboardPage_Address } from './Dashboard/Page/Address/Address.Page';
 import { DashboardPage_Support } from './Dashboard/Page/Support/Support.Page';
+import { DashboardPage_Setting } from './Dashboard/Page/Setting/Setting.Page';
+import { LoadingComponent } from './Components/Loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +54,15 @@ import { DashboardPage_Support } from './Dashboard/Page/Support/Support.Page';
     Auth_AutherWay,
     Auth_Register,
     Auth_Login,
+    DashboardPage_Setting,
+    LoadingComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     SocialLoginModule

@@ -38,10 +38,18 @@ app.get('', (req, res) => {
 
 app.get('/test', (req, res) => {
 
+    function generateUID() {
+        const timestamp = Date.now().toString(); // Get the current timestamp as a string
+        const randomNum = Math.floor(Math.random() * 10000); // Generate a random number between 0 and 10000
+        const uid = timestamp + randomNum; // Concatenate the timestamp and random number
+        return uid;
+    }
+
     const data = {
         Username: "momahi",
         timestamp: new Date(),
         Rank: "Owner",
+        UID: generateUID(),
         Token: tokenModule.CreateNewToken("momahi", "Owner", null),
         Results: tokenModule.CheckToken(tokenModule.CreateNewToken("momahi", "Owner", null))
     }

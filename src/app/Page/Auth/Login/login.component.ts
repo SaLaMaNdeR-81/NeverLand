@@ -1,6 +1,8 @@
 import { Component , EventEmitter , Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { LoadingService } from 'src/app/@Core/Services/Loading.Service';
+
 @Component({
   selector: 'Auth-Login',
   templateUrl: './login.component.html',
@@ -14,7 +16,7 @@ export class Auth_Login {
   
   // =======================================
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient , private loadingService: LoadingService) {}
 
   // =======================================
 
@@ -23,6 +25,9 @@ export class Auth_Login {
   }
 
   onFormSubmit(): void {
+
+    this.loadingService.showLoader();
+
     const data = {
       username: this.Username,
       password: this.Password
@@ -42,11 +47,14 @@ export class Auth_Login {
 
       if (parsedData.token) {
         localStorage.setItem("Token" , parsedData.token)
+        this.loadingService.hideLoader();
         document.location.reload()
       }
       
     })
     .catch(error => console.error(error));
+    
+
   }
 
 }

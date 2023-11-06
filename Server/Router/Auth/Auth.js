@@ -49,28 +49,32 @@ router.post('/login', (req, res) => {
     const { username, password } = req.body;
     const query = 'SELECT * FROM auth WHERE username =?';
 
-    connection.query(query, [username], (error, results, fields) => {
+    setTimeout(() => {
 
-        if (error) throw error;
+        connection.query(query, [username], (error, results, fields) => {
 
-        if (results.length === 0) {
-            return res.status(401).json({ message: 'Invalid Username' });
-        }
+            if (error) throw error;
 
-        const Data = JSON.parse(JSON.stringify(results[0]));
+            if (results.length === 0) {
+                return res.status(401).json({ message: 'Invalid Username' });
+            }
 
-        if (!hashModule.Comparison(Data.password, password)) {
-            return res.status(401).json({ message: 'Invalid Password' });
-        }
+            const Data = JSON.parse(JSON.stringify(results[0]));
 
-        if (Data && hashModule.Comparison(Data.password, password)) {
+            if (!hashModule.Comparison(Data.password, password)) {
+                return res.status(401).json({ message: 'Invalid Password' });
+            }
 
-            const token = tokenModule.CreateNewToken(username, "Owner", null)
-            return res.json({ token });
+            if (Data && hashModule.Comparison(Data.password, password)) {
 
-        }
+                const token = tokenModule.CreateNewToken(username, "Owner", null)
+                return res.json({ token });
 
-    });
+            }
+
+        });
+
+    }, 1000);
 
 });
 
@@ -84,6 +88,12 @@ router.post('/register', (req, res) => {
 
     const { username, password } = req.body
 
+    function generateUID() {
+        const timestamp = Date.now().toString(); // Get the current timestamp as a string
+        const randomNum = Math.floor(Math.random() * 100000); // Generate a random number between 0 and 10000
+        const uid = timestamp + randomNum; // Concatenate the timestamp and random number
+        return uid;
+    }
 
     if (!password) {
         return res.status(401).json({ type: "Error", message: 'Password is empty' })
@@ -93,8 +103,8 @@ router.post('/register', (req, res) => {
     const RegisterIp = req.ip
 
     const Query_CheckUser = 'SELECT * FROM auth WHERE username =?'
-    const Query_MakeNewUser = `INSERT INTO auth (username, password, register_date, register_ip) VALUES (?, ?, UNIX_TIMESTAMP() , ? )`;
-    const Values = [username, HashedPass, RegisterIp]
+    const Query_MakeNewUser = `INSERT INTO auth (UID,username, password, register_date, register_ip) VALUES (?,?, ?, UNIX_TIMESTAMP() , ? )`;
+    const Values = [generateUID(), username, HashedPass, RegisterIp]
 
     connection.query(Query_CheckUser, [username], (error, results, fields) => {
 
