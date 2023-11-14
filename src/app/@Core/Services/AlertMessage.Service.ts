@@ -13,9 +13,6 @@ export class AlertMessageService {
   
   constructor() {
 
-    console.log(this.AlertMessagesSubject);
-    console.log(this.AlertMessages);
-
   }
 
   
