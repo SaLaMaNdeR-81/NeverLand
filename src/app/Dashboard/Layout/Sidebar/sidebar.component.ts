@@ -1,5 +1,6 @@
 import { Component ,EventEmitter, Output } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AlertMessageService } from 'src/app/@Core/Services/AlertMessage.Service';
 
 @Component({
   selector: 'Dashboard-Sidebar',
@@ -11,7 +12,7 @@ export class Dashboard_Sidebar {
 
   @Output() DashboardPageSelected = new EventEmitter<string>();
 
-  constructor(){
+  constructor(private AlertService : AlertMessageService ){
 
   }
 

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+import { TokenService } from './@Core/Services/Token.Service';
+import { TitleService } from './@Core/Services/Title.Service';
+
+const tokenService = new TokenService()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,8 +15,9 @@ export class AppComponent {
   theme : any ;
   Token : any = localStorage.getItem("Token")
 
-  constructor(){
+  constructor(private TitleService:TitleService){
 
+    this.TitleService.ResetTitle()
     this.Set_theme()
     this.CheckToken()
 
@@ -49,7 +54,7 @@ export class AppComponent {
       console.log(parsedData);
 
       if(parsedData.message !== "Token is Active"){
-        localStorage.removeItem("Token")
+        tokenService.removeToken()
       }
 
     })

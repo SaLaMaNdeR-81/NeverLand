@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { LoadingService } from '../@Core/Services/Loading.Service';
+import { TitleService } from '../@Core/Services/Title.Service';
 
 @Component({
   selector: 'App-Dashboad',
@@ -28,8 +29,9 @@ export class App_Dashboad {
   Token : any = localStorage.getItem("Token") ;
   Logged :any ;
 
-  constructor(private loadingService: LoadingService){
+  constructor(private loadingService: LoadingService , private TitleService:TitleService){
 
+    this.TitleService.SetTitle("Dashboard")
     this.Check_Token()
 
   }

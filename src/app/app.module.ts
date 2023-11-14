@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { App_Dashboad } from './Dashboard/dashboad.component';
 
+import { LoadingComponent } from './Components/Loading/Loading.Component';
+import { AlertMessageComponent } from './Components/AlertMessage/AlertMessage.component';
+
 import { Page_Auth } from './Page/Auth/Auth.Page';
 import { Auth_AutherWay } from './Page/Auth/AutherWay/AutherWay.component';
 import { Auth_Register } from './Page/Auth/Register/register.component';
@@ -29,13 +32,15 @@ import { DashboardPage_Orders } from './Dashboard/Page/Orders/Orders.Page';
 import { DashboardPage_Address } from './Dashboard/Page/Address/Address.Page';
 import { DashboardPage_Support } from './Dashboard/Page/Support/Support.Page';
 import { DashboardPage_Setting } from './Dashboard/Page/Setting/Setting.Page';
-import { LoadingComponent } from './Components/Loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     App_Dashboad,
     
+    LoadingComponent,
+    AlertMessageComponent,
+
     Dashboard_Header,
     Dashboard_Sidebar,
     Dashboard_Content,
@@ -55,7 +60,6 @@ import { LoadingComponent } from './Components/Loading/loading.component';
     Auth_Register,
     Auth_Login,
     DashboardPage_Setting,
-    LoadingComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,7 +1,9 @@
-import { Component , EventEmitter , Output } from '@angular/core';
+import { Component , OnInit , EventEmitter , Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { LoadingService } from 'src/app/@Core/Services/Loading.Service';
+import { AlertMessageService } from 'src/app/@Core/Services/AlertMessage.Service';
+import { TitleService } from 'src/app/@Core/Services/Title.Service';
 
 @Component({
   selector: 'Auth-Login',
@@ -16,7 +18,9 @@ export class Auth_Login {
   
   // =======================================
 
-  constructor(private http: HttpClient , private loadingService: LoadingService) {}
+  constructor(private http: HttpClient , private loadingService: LoadingService , private AlertService :AlertMessageService , private titleService:TitleService ) {
+    this.titleService.SetTitle("Login")
+  }
 
   // =======================================
 
@@ -47,6 +51,7 @@ export class Auth_Login {
 
       if (parsedData.token) {
         localStorage.setItem("Token" , parsedData.token)
+        this.AlertService.AddAlert(parsedData.result)
         this.loadingService.hideLoader();
         document.location.reload()
       }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { TitleService } from 'src/app/@Core/Services/Title.Service';
 
 @Component({
   selector: 'Page-Auth',
@@ -14,12 +15,14 @@ export class Page_Auth {
 
   Check_Token : any = localStorage.getItem("Token") 
 
-  constructor(){
+  constructor(private titleService : TitleService){
+    
+    this.titleService.SetTitle("Auth")
 
     if(this.Check_Token){
       document.location = "/dashboard"
     }
-
+    
   }
 
   onChange(feature : string){

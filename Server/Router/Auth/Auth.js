@@ -56,19 +56,19 @@ router.post('/login', (req, res) => {
             if (error) throw error;
 
             if (results.length === 0) {
-                return res.status(401).json({ message: 'Invalid Username' });
+                return res.status(401).json({ message: 'Invalid Username', result: { message: "Invalid Username.", type: "Error" } });
             }
 
             const Data = JSON.parse(JSON.stringify(results[0]));
 
             if (!hashModule.Comparison(Data.password, password)) {
-                return res.status(401).json({ message: 'Invalid Password' });
+                return res.status(401).json({ message: 'Invalid Username', result: { message: "Invalid Username.", type: "Error" } });
             }
 
             if (Data && hashModule.Comparison(Data.password, password)) {
 
                 const token = tokenModule.CreateNewToken(username, "Owner", null)
-                return res.json({ token });
+                return res.json({ token, result: { message: "Welcome to the NeverLand.", type: "Success" } });
 
             }
 
