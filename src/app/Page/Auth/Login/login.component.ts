@@ -40,9 +40,9 @@ export class Auth_Login {
     fetch('http://localhost:3000/auth/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json' // Set Content-Type header to indicate JSON data
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data) // Convert object to JSON string
+      body: JSON.stringify(data)
     })
     .then(response => response.json())
     .then(parsedData => {
